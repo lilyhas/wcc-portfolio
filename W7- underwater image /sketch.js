@@ -4,6 +4,15 @@
 
 */
 
+///for making it responsive 
+let canvas;
+let button;
+let slider;
+
+let displayState = 0;
+//_____________________________________________
+
+
 let reef2;
 let w = 120;
 
@@ -20,7 +29,10 @@ function preload() {
 }
 
 function setup(){
-  createCanvas(900, 507);
+  canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+  canvas.parent("sketch-container"); //move our canvas inside this HTML element
+
+  //createCanvas(900, 507);
   reef2.loadPixels();
 
   // pixelDensity(1) for not scaling pixel density to display density
@@ -95,3 +107,6 @@ function convolution(x, y, matrix, matrixsize, forest) {
 } 
 
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
